@@ -11,7 +11,6 @@ var (
 )
 
 type FlagSet interface {
-	//Name() string
 	Parse([]string) error
 	NArg() int
 	Args() []string
@@ -19,13 +18,6 @@ type FlagSet interface {
 }
 
 type FlagSetCreator[F FlagSet] func(name string) F
-
-type FlagSetIterator interface {
-	VisitAll()
-}
-
-func CopyFlags(dst, src FlagSet) {
-}
 
 type Cmd[F FlagSet] struct {
 	flags    F
