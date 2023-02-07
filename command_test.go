@@ -32,6 +32,7 @@ func TestCommand(t *testing.T) {
 		t.Errorf("expected ErrNoSuchCommand, got %v", err)
 	}
 
+	ran = false
 	cmd.NewCmd("bar", func(ctx context.Context) error {
 		ran = true
 		return nil

@@ -37,7 +37,7 @@ func NewCmd(name string, h func(context.Context) error) *Cmd[*flag.FlagSet] {
 
 // NewCmdWithFlagSet is a generic version of NewCmd that allows you to use any type that implements the FlagSet interface.
 func NewCmdWithFlagSet[F FlagSet](name string, h func(context.Context) error, newFlags FlagSetCreator[F]) *Cmd[F] {
-	return &Cmd[F]{flags: newFlags(name), h: h, newFlags: newFlags}
+	return &Cmd[F]{flags: newFlags(name), h: h, newFlags: newFlags, name: name}
 }
 
 // Name returns the name of the command.
